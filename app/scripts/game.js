@@ -40,9 +40,31 @@ window.Game = (function() {
 		this.obstacle2.onFrame(delta);
 		this.obstacle3.onFrame(delta);
 
+		this.checkColisionWithObstacles();
+
+
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
 	};
+
+	Game.prototype.checkColisionWithObstacles = function () {
+		if (this.player.pos.x > this.obstacle1.pos.x && this.player.pos.x < (this.obstacle1.pos.x + this.obstacle1.width)) {
+			if (this.player.pos.y < this.obstacle1.pos.y || this.player.pos.y > (this.obstacle1.pos.y +this.obstacle1.height)) {
+				return this.gameover();
+			}
+		}
+		if (this.player.pos.x > this.obstacle2.pos.x && this.player.pos.x < (this.obstacle2.pos.x + this.obstacle2.width)) {
+
+			if (this.player.pos.y < this.obstacle2.pos.y || this.player.pos.y > (this.obstacle2.pos.y + this.obstacle2.height)) {
+				return this.gameover();
+			}
+		}
+		if (this.player.pos.x > this.obstacle3.pos.x && this.player.pos.x < (this.obstacle3.pos.x + this.obstacle3.width)) {
+			if (this.player.pos.y < this.obstacle3.pos.y || this.player.pos.y > (this.obstacle3.pos.y +this.obstacle3.height)) {
+				return this.gameover();
+			}
+		}
+	}
 
 	/**
 	 * Starts a new game.
@@ -61,6 +83,9 @@ window.Game = (function() {
 	 */
 	Game.prototype.reset = function() {
 		this.player.reset();
+		this.obstacle1.reset(70);
+		this.obstacle2.reset(120);
+		this.obstacle3.reset(170);
 	};
 
 	/**

@@ -13,8 +13,8 @@
 .Obstacle {
 	top: 0;
 	left: 0;
-	width: 5em;
-	height: 5em;
+	width: 10em;
+	height: 25em;
 	background: white;
 }
 
