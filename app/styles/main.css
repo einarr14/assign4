@@ -7,7 +7,29 @@
   background: url("../images/cloud.png");
   background-size: 100%;
   background-repeat: no-repeat;
-  z-index:5;
+  z-index: 5;
+}
+
+.PlayerWing {
+  position: absolute;
+  left: -1em;
+  bottom: 1em;
+  height: 4em;
+  width: 4em;
+  
+  background: url("../images/wing.png");
+  background-size: 100%;
+  transform-origin: center;
+  animation: 0.4s flap alternate infinite;
+}
+
+@keyframes flap {
+  from {
+    transform: rotateX(0);
+  }
+  to {
+    transform: rotateX(80deg);
+  }
 }
 
 .Obstacle {
