@@ -10,7 +10,9 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
-		//this.obstacle = new window.Player(this.el.find('.Obstacle'), this);
+		this.obstacle1 = new window.Obstacle(this.el.find('#obstacle1'), this, 70);
+		this.obstacle2 = new window.Obstacle(this.el.find('#obstacle2'), this, 120);
+		this.obstacle3 = new window.Obstacle(this.el.find('#obstacle3'), this, 170);
 		this.isPlaying = false;
 
 		// Cache a bound onFrame since we need it each frame.
@@ -34,7 +36,9 @@ window.Game = (function() {
 
 		// Update game entities.
 		this.player.onFrame(delta);
-		//this.obstacle.onFrame(delta);
+		this.obstacle1.onFrame(delta);
+		this.obstacle2.onFrame(delta);
+		this.obstacle3.onFrame(delta);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
