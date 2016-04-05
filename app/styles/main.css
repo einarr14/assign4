@@ -69,6 +69,5 @@ body {
   margin-left: -51.2em;
   margin-top: -28.8em;
   overflow: hidden;
-  background: url("../images/background.png") fixed;
-  background-size: 150em;
+  background: rgb(34,128,251);
 }
