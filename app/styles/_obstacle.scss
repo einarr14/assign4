@@ -1,0 +1,11 @@
+
+.Obstacle {
+    // Absolutely position entities at 0,0 and use transform to
+    // move it around.
+    top: 0;
+    left: 0;
+    width: em(50px);
+    height: em(50px);
+
+    background: white;
+}
