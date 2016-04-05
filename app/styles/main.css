@@ -7,6 +7,14 @@
 	background: blue;
 }
 
+.Obstacle {
+	top: 0;
+	left: 0;
+	width: 5em;
+	height: 5em;
+	background: white;
+}
+
 .Scoreboard {
 	position: absolute;
 	left: 50%;
