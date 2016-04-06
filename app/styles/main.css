@@ -39,17 +39,17 @@
 }
 
 .ObstacleBot {
-	background: url("https://unicornpooptheblog.files.wordpress.com/2014/10/cropped-unicorn-poop-header3.png");
+	background: url("../images/drop.png");
 	position:absolute;
 	vertical-align: top;
-    background-size: 100%;
+    background-size: 20%;
 }
 
 .ObstacleTop {
-	background: url("https://unicornpooptheblog.files.wordpress.com/2014/10/cropped-unicorn-poop-header3.png");
+	background: url("../images/drop.png");
 	position:absolute;
 	vertical-align: bottom;
-    background-size: 100%;
+    background-size: 20%;
 }
 
 .Scoreboard {
