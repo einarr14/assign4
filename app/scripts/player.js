@@ -25,6 +25,8 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
+		this.width = WIDTH;
+		this.height = HEIGHT;
 		START = false;
 		SPEED = 0;
 	};
@@ -49,6 +51,7 @@ window.Player = (function() {
 		if (this.pos.x < 0 ||
 			this.pos.x + WIDTH > this.game.WORLD_WIDTH ||
 			this.pos.y + HEIGHT > this.game.WORLD_HEIGHT) {
+			console.log("hey there");
 			return this.game.gameover();
 		}
 	};

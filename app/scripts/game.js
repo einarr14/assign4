@@ -10,9 +10,13 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
 		this.player = new window.Player(this.el.find('.Player'), this);
-		this.obstacle1 = new window.Obstacle(this.el.find('#obstacle1'), this, 70);
-		this.obstacle2 = new window.Obstacle(this.el.find('#obstacle2'), this, 120);
-		this.obstacle3 = new window.Obstacle(this.el.find('#obstacle3'), this, 170);
+		this.obstacleTop1 = new window.Obstacle(this.el.find('#obstacle-top-1'), this, 70);
+		this.obstacleTop2 = new window.Obstacle(this.el.find('#obstacle-top-2'), this, 120);
+		this.obstacleTop3 = new window.Obstacle(this.el.find('#obstacle-top-3'), this, 170);
+		this.obstacleBot1 = new window.Obstacle(this.el.find('#obstacle-bot-1'), this, 70, this.obstacleTop1);
+		this.obstacleBot2 = new window.Obstacle(this.el.find('#obstacle-bot-2'), this, 120, this.obstacleTop2);
+		this.obstacleBot3 = new window.Obstacle(this.el.find('#obstacle-bot-3'), this, 170, this.obstacleTop3);
+
 		this.isPlaying = false;
 
 		// Cache a bound onFrame since we need it each frame.
@@ -36,9 +40,12 @@ window.Game = (function() {
 
 		// Update game entities.
 		this.player.onFrame(delta);
-		this.obstacle1.onFrame(delta);
-		this.obstacle2.onFrame(delta);
-		this.obstacle3.onFrame(delta);
+		this.obstacleTop1.onFrame(delta);
+		this.obstacleTop2.onFrame(delta);
+		this.obstacleTop3.onFrame(delta);
+		this.obstacleBot1.onFrame(delta, this.obstacleTop1);
+		this.obstacleBot2.onFrame(delta, this.obstacleTop2);
+		this.obstacleBot3.onFrame(delta, this.obstacleTop3);
 
 		this.checkColisionWithObstacles();
 
@@ -48,23 +55,30 @@ window.Game = (function() {
 	};
 
 	Game.prototype.checkColisionWithObstacles = function () {
-		if (this.player.pos.x > this.obstacle1.pos.x && this.player.pos.x < (this.obstacle1.pos.x + this.obstacle1.width)) {
-			if (this.player.pos.y < this.obstacle1.pos.y || this.player.pos.y > (this.obstacle1.pos.y +this.obstacle1.height)) {
-				return this.gameover();
-			}
-		}
-		if (this.player.pos.x > this.obstacle2.pos.x && this.player.pos.x < (this.obstacle2.pos.x + this.obstacle2.width)) {
+		// Bottom side
+		var playerX = this.player.pos.x + this.player.width;
+		// Right side
+		var playerY = this.player.pos.y + this.player.height;
 
-			if (this.player.pos.y < this.obstacle2.pos.y || this.player.pos.y > (this.obstacle2.pos.y + this.obstacle2.height)) {
+		if (playerX > this.obstacleTop1.pos.x && this.player.pos.x < (this.obstacleTop1.pos.x + this.obstacleTop1.width)) {
+			if (playerY > this.obstacleBot1.pos.y || this.player.pos.y < this.obstacleTop1.height) {
+				console.log("gameover");
 				return this.gameover();
 			}
 		}
-		if (this.player.pos.x > this.obstacle3.pos.x && this.player.pos.x < (this.obstacle3.pos.x + this.obstacle3.width)) {
-			if (this.player.pos.y < this.obstacle3.pos.y || this.player.pos.y > (this.obstacle3.pos.y +this.obstacle3.height)) {
+		if (playerX > this.obstacleTop2.pos.x && this.player.pos.x < (this.obstacleTop2.pos.x + this.obstacleTop2.width)) {
+			if (playerY > this.obstacleBot2.pos.y || this.player.pos.y < this.obstacleTop2.height) {
+				console.log("gameOver2");
 				return this.gameover();
 			}
 		}
-	}
+		if (playerX > this.obstacleTop3.pos.x && this.player.pos.x < (this.obstacleTop3.pos.x + this.obstacleTop3.width)) {
+			if (playerY > this.obstacleBot3.pos.y || this.player.pos.y < this.obstacleTop3.height) {
+				console.log("gameover3");
+				return this.gameover();
+			}
+		}
+	};
 
 	/**
 	 * Starts a new game.
@@ -83,9 +97,12 @@ window.Game = (function() {
 	 */
 	Game.prototype.reset = function() {
 		this.player.reset();
-		this.obstacle1.reset(70);
-		this.obstacle2.reset(120);
-		this.obstacle3.reset(170);
+		this.obstacleTop1.reset(70);
+		this.obstacleTop2.reset(120);
+		this.obstacleTop3.reset(170);
+		this.obstacleBot1.reset(70, this.obstacleTop1);
+		this.obstacleBot2.reset(120, this.obstacleTop2);
+		this.obstacleBot3.reset(170, this.obstacleTop3);
 	};
 
 	/**

@@ -24,20 +24,39 @@
 }
 
 @keyframes flap {
-  from {
-    transform: rotateX(0);
-  }
-  to {
-    transform: rotateX(80deg);
-  }
+	transform-origin: bottom left;
+	from {
+		transform: rotateX(0);
+	}
+	to {
+		transform: rotateX(80deg);
+	}
 }
 
 .Obstacle {
 	top: 0;
 	left: 0;
 	width: 10em;
-	height: 25em;
-	background: white;
+}
+
+.ObstacleBot {
+	background: url("https://unicornpooptheblog.files.wordpress.com/2014/10/cropped-unicorn-poop-header3.png");
+	position:absolute;
+	vertical-align: top;
+    background-size: 100%;
+}
+
+.ObstacleTop {
+	background: url("https://unicornpooptheblog.files.wordpress.com/2014/10/cropped-unicorn-poop-header3.png");
+	position:absolute;
+	transform-origin: bottom right;
+	-webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+	vertical-align: bottom;
+    background-size: 100%;
 }
 
 .Scoreboard {
