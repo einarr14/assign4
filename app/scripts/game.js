@@ -9,6 +9,8 @@ window.Game = (function() {
 	 */
 	var Game = function(el) {
 		this.el = el;
+		this.points = 0;
+
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.obstacleTop1 = new window.Obstacle(this.el.find('#obstacle-top-1'), this, 70);
 		this.obstacleTop2 = new window.Obstacle(this.el.find('#obstacle-top-2'), this, 120);
@@ -48,6 +50,7 @@ window.Game = (function() {
 		this.obstacleBot3.onFrame(delta, this.obstacleTop3);
 
 		this.checkColisionWithObstacles();
+		this.checkPoint(delta);
 
 
 		// Request next frame.
@@ -62,23 +65,32 @@ window.Game = (function() {
 
 		if (playerX > this.obstacleTop1.pos.x && this.player.pos.x < (this.obstacleTop1.pos.x + this.obstacleTop1.width)) {
 			if (playerY > this.obstacleBot1.pos.y || this.player.pos.y < this.obstacleTop1.height) {
-				console.log("gameover");
 				return this.gameover();
 			}
 		}
 		if (playerX > this.obstacleTop2.pos.x && this.player.pos.x < (this.obstacleTop2.pos.x + this.obstacleTop2.width)) {
 			if (playerY > this.obstacleBot2.pos.y || this.player.pos.y < this.obstacleTop2.height) {
-				console.log("gameOver2");
 				return this.gameover();
 			}
 		}
 		if (playerX > this.obstacleTop3.pos.x && this.player.pos.x < (this.obstacleTop3.pos.x + this.obstacleTop3.width)) {
 			if (playerY > this.obstacleBot3.pos.y || this.player.pos.y < this.obstacleTop3.height) {
-				console.log("gameover3");
 				return this.gameover();
 			}
 		}
 	};
+
+	Game.prototype.checkPoint = function (delta) {
+		if (this.obstacleTop1.pos.x + (delta * this.obstacleTop1.speed) > this.player.pos.x && this.obstacleTop1.pos.x < this.player.pos.x) {
+			this.points++;
+		}
+		if (this.obstacleTop2.pos.x + (delta * this.obstacleTop2.speed) > this.player.pos.x && this.obstacleTop2.pos.x < this.player.pos.x) {
+			this.points++;
+		}
+		if (this.obstacleTop3.pos.x + (delta * this.obstacleTop3.speed) > this.player.pos.x && this.obstacleTop3.pos.x < this.player.pos.x) {
+			this.points++;
+		}
+	}
 
 	/**
 	 * Starts a new game.
@@ -109,6 +121,7 @@ window.Game = (function() {
 	 * Signals that the game is over.
 	 */
 	Game.prototype.gameover = function() {
+		console.log(this.points);
 		this.isPlaying = false;
 
 		// Should be refactored into a Scoreboard class.

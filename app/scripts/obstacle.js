@@ -18,10 +18,10 @@ window.Obstacle = (function() {
 		if (typeof topObst !== "undefined") {
 			this.pos.y = topObst.height + GAPSIZE;
 			this.height = this.game.WORLD_HEIGHT - this.pos.y;
-			console.log(topObst.height + " " + this.pos.y);
 		}
 		this.width = WIDTH;
 		this.topObst = topObst;
+		this.speed = SPEED;
 		this.el.css('height', this.height + 'em');
 	};
 
@@ -32,9 +32,7 @@ window.Obstacle = (function() {
 		if (typeof topObst !== "undefined") {
 			this.pos.y = topObst.height + GAPSIZE;
 			this.height = this.game.WORLD_HEIGHT - this.pos.y;
-			console.log(topObst.height + " " + this.pos.y + " " + this.height);
 		}
-		console.log("this element" + this.el);
 		this.el.css('height', this.height + 'em');
 	};
 
@@ -46,7 +44,6 @@ window.Obstacle = (function() {
 			this.pos.y = 0;
 			this.height = this.getY();
 			if (typeof this.topObst !== "undefined") {
-				console.log("making bot ");
 				this.pos.y = topObst.height + GAPSIZE;
 				this.height = this.game.WORLD_HEIGHT - this.pos.y;
 			}
