@@ -24,7 +24,6 @@
 }
 
 @keyframes flap {
-	transform-origin: bottom left;
 	from {
 		transform: rotateX(0);
 	}
@@ -49,12 +48,6 @@
 .ObstacleTop {
 	background: url("https://unicornpooptheblog.files.wordpress.com/2014/10/cropped-unicorn-poop-header3.png");
 	position:absolute;
-	transform-origin: bottom right;
-	-webkit-transform: rotateX(180deg);
-    -moz-transform: rotateX(180deg);
-    -ms-transform: rotateX(180deg);
-    -o-transform: rotateX(180deg);
-    transform: rotateX(180deg);
 	vertical-align: bottom;
     background-size: 100%;
 }
