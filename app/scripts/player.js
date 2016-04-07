@@ -33,7 +33,6 @@ window.Player = (function() {
 	};
 
 	Player.prototype.onFrame = function(delta) {
-
 		if (Controls.keys.space || Controls.keys.click || Controls.keys.tap) {
 			var sound = document.getElementById('flapsound');
 			sound.currentTime = 0;
@@ -41,10 +40,6 @@ window.Player = (function() {
 			SPEED = 60;
 			ROTATION = -50;
 			this.start = true;
-		}
-		if (this.game.isPlaying === false) {
-			console.log('here');
-			this.pos.y -= delta * 50;
 		}
 		if (this.start === true) {
 			SPEED -= 5;

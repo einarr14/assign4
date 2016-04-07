@@ -102,7 +102,7 @@ window.Game = (function() {
 			//sound.currentTime = 0;
 			sound.play();
 		}
-		
+
 	};
 
 	/**
