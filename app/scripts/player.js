@@ -42,6 +42,10 @@ window.Player = (function() {
 			ROTATION = -50;
 			this.start = true;
 			$('#Instructions').css('visibility', 'hidden');
+			this.el.find('.PlayerWing').css('animation', '0.05s flap alternate infinite');
+		}
+		else {
+			this.el.find('.PlayerWing').css('animation', '0.05s flap alternate 0');
 		}
 		if (this.start === true) {
 			SPEED -= 5;

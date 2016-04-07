@@ -16,16 +16,16 @@
 }
 
 .PlayerWing {
+  transform-origin:100% 100%;
   position: absolute;
   left: -1em;
-  bottom: 1em;
+  bottom: 1.5em;
   height: 4em;
   width: 4em;
   
   background: url("../images/wing.png");
   background-size: 100%;
-  transform-origin: center;
-  animation: 0.4s flap alternate infinite;
+  animation: 0.4s flap alternate 0;
 }
 
 @keyframes flap {
@@ -33,7 +33,7 @@
 		transform: rotateX(0deg);
 	}
 	to {
-		transform: rotateX(80deg);
+		transform: rotateX(100deg);
 	}
 }
 
@@ -49,15 +49,18 @@
   background-size: 100%;
   background-repeat: no-repeat;
   z-index: 4;
-  animation: georgeMovement 7s linear infinite;
+  animation: georgeMovement 10s linear infinite;
 }
 
 @keyframes georgeMovement {
-  from {
-    transform: translateZ(0) translateX(10em) rotateZ(0deg);
+  0% {
+    transform: translateZ(0) translateX(10em) rotateZ(0deg) scale(0.5, 0.5);
   }
-  to   {
-    transform: translateZ(0) translateX(-100em) rotateZ(720deg);
+  90% {
+    transform: translateZ(0) translateX(-65em) rotateZ(180deg) scale(2, 2);
+  }
+  100%   {
+    transform: translateZ(0) translateX(-100em) rotateZ(1050deg) scale(0.5, 0.5);
   }
 }
 
