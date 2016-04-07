@@ -23,6 +23,7 @@ window.Controls = (function() {
      */
     var Controls = function() {
         this._didJump = false;
+        this.muted = false;
         this.keys = {};
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
@@ -33,6 +34,22 @@ window.Controls = (function() {
         // Only jump if space wasn't pressed.
         if (e.keyCode === 32 && !this.keys.space) {
             this._didJump = true;
+        }
+
+        if (e.keyCode === 77 && !this.keys.m) {
+            console.log ('here');
+            var music = document.getElementById("mainsound");
+            if (this.muted === false) {
+                console.log('muting');
+                music.muted = true;
+                this.muted = true;
+            }
+            else if (this.muted === true) {
+                console.log('unmuting');
+                music.muted = false;
+                this.muted = false;
+            }
+            
         }
 
         // Remember that this button is down.
