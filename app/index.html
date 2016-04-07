@@ -28,7 +28,10 @@
             <audio id="mainsound" src="sounds/carelesswhisper.mp3" autoplay loop></audio>
             <audio id="flapsound" src="sounds/sfx_wing.ogg"></audio>
             <audio id="checksound" src="sounds/sfx_point.ogg"></audio>
-            <div class="Score" id="Score">0</div>
+            <audio id="hitsound" src="sounds/sfx_hit.ogg"></audio>
+            <div class="score">
+                <span id="Score"></span>
+            </div>
             
             <div class="Player">
                 <div class="PlayerWing"></div>
@@ -46,7 +49,12 @@
             <div class="volumeButton"></div>
             
             <div class="Scoreboard">
-                <div class="FinalScore"><div>
+                <div class="Scoreboard-finalScore">
+                    Score: <span id="finalScore"></span>
+                <div>
+                <div class="Scoreboard-highScore">
+                    High Score: <span id="highScore"></span>
+                </div>
                 <button class="Scoreboard-restart">
                     <span class="Scoreboard-restartText">Restart</span>
                 </button>

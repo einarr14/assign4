@@ -10,6 +10,7 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.el = el;
 		this.points = 0;
+		this.highscore = 0;
 
 		this.player = new window.Player(this.el.find('.Player'), this);
 		this.obstacleTop1 = new window.Obstacle(this.el.find('#obstacle-top-1'), this, 70);
@@ -18,9 +19,6 @@ window.Game = (function() {
 		this.obstacleBot1 = new window.Obstacle(this.el.find('#obstacle-bot-1'), this, 70, this.obstacleTop1);
 		this.obstacleBot2 = new window.Obstacle(this.el.find('#obstacle-bot-2'), this, 120, this.obstacleTop2);
 		this.obstacleBot3 = new window.Obstacle(this.el.find('#obstacle-bot-3'), this, 170, this.obstacleTop3);
-
-		this.score = this.el.find('Score');
-		this.finalScore = this.el.find('.FinalScore');
 
 		this.isPlaying = false;
 
@@ -87,12 +85,16 @@ window.Game = (function() {
 		if (this.obstacleTop1.pos.x + (delta * this.obstacleTop1.speed) > this.player.pos.x && this.obstacleTop1.pos.x < this.player.pos.x) {
 			this.points++;
 			var sound = document.getElementById('checksound');
+			console.log(this.points);
+			$('#Score').html(this.points);
 			//sound.currentTime = 0;
 			sound.play();
 		}
 		if (this.obstacleTop2.pos.x + (delta * this.obstacleTop2.speed) > this.player.pos.x && this.obstacleTop2.pos.x < this.player.pos.x) {
 			this.points++;
 			var sound = document.getElementById('checksound');
+			console.log(this.points);
+			$('#Score').html(this.points);
 			//sound.currentTime = 0;
 			sound.play();
 			//this.score.update(this.points);
@@ -100,6 +102,8 @@ window.Game = (function() {
 		if (this.obstacleTop3.pos.x + (delta * this.obstacleTop3.speed) > this.player.pos.x && this.obstacleTop3.pos.x < this.player.pos.x) {
 			this.points++;
 			var sound = document.getElementById('checksound');
+			console.log(this.points);
+			$('#Score').html(this.points);
 			//sound.currentTime = 0;
 			sound.play();
 			//this.score.update(this.points);
@@ -111,7 +115,7 @@ window.Game = (function() {
 	 */
 	Game.prototype.start = function() {
 		this.reset();
-
+		$('#Score').html(this.points);
 		// Restart the onFrame loop
 		this.lastFrame = +new Date() / 1000;
 		window.requestAnimationFrame(this.onFrame);
@@ -137,6 +141,15 @@ window.Game = (function() {
 	 */
 	Game.prototype.gameover = function() {
 		//this.finalScore.update("Score: " + this.points);
+		var sound = document.getElementById('hitsound');
+		sound.play();
+
+		if(this.highscore < this.points) {
+			this.highscore = this.points;
+		}
+
+		$('#finalScore').html(this.points);
+		$('#highScore').html(this.highscore);
 		this.isPlaying = false;
 		// Should be refactored into a Scoreboard class.
 		var that = this;
