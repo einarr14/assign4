@@ -34,12 +34,16 @@ window.Player = (function() {
 	Player.prototype.onFrame = function(delta) {
 		
 		if (Controls.keys.space || Controls.keys.click) {
+			var sound = document.getElementById('flap');
+			sound.currentTime = 0;
+			sound.play();
 			SPEED = 60;
 			this.start = true;
 		}
 		if (this.start === true) {
 			SPEED -= 5;
 		}
+
 		this.pos.y -= delta * SPEED;
 		this.checkCollisionWithBounds();
 
