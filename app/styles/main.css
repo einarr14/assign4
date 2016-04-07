@@ -12,7 +12,7 @@
   background: url("../images/cloud.png");
   background-size: 100%;
   background-repeat: no-repeat;
-  z-index: 5;
+  z-index: 7;
 }
 
 .PlayerWing {
@@ -54,10 +54,10 @@
 
 @keyframes georgeMovement {
   from {
-    transform: translateX(10em) rotateZ(0deg);
+    transform: translateZ(0) translateX(10em) rotateZ(0deg);
   }
   to   {
-    transform: translateX(-100em) rotateZ(720deg);
+    transform: translateZ(0) translateX(-100em) rotateZ(720deg);
   }
 }
 
@@ -163,6 +163,11 @@ body {
   margin-top: -28.8em;
   overflow: hidden;
   background: rgb(34,128,251);
+}
+
+.instructions {
+  margin-left: 1em;
+  margin-top: 13em;
 }
 
 
