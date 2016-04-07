@@ -19,6 +19,9 @@ window.Game = (function() {
 		this.obstacleBot2 = new window.Obstacle(this.el.find('#obstacle-bot-2'), this, 120, this.obstacleTop2);
 		this.obstacleBot3 = new window.Obstacle(this.el.find('#obstacle-bot-3'), this, 170, this.obstacleTop3);
 
+		this.score = this.el.find('Score');
+		this.finalScore = this.el.find('.FinalScore');
+
 		this.isPlaying = false;
 
 		// Cache a bound onFrame since we need it each frame.
@@ -86,11 +89,13 @@ window.Game = (function() {
 		}
 		if (this.obstacleTop2.pos.x + (delta * this.obstacleTop2.speed) > this.player.pos.x && this.obstacleTop2.pos.x < this.player.pos.x) {
 			this.points++;
+			//this.score.update(this.points);
 		}
 		if (this.obstacleTop3.pos.x + (delta * this.obstacleTop3.speed) > this.player.pos.x && this.obstacleTop3.pos.x < this.player.pos.x) {
 			this.points++;
+			//this.score.update(this.points);
 		}
-	}
+	};
 
 	/**
 	 * Starts a new game.
@@ -108,6 +113,7 @@ window.Game = (function() {
 	 * Resets the state of the game so a new game can be started.
 	 */
 	Game.prototype.reset = function() {
+		this.points = 0;
 		this.player.reset();
 		this.obstacleTop1.reset(70);
 		this.obstacleTop2.reset(120);
@@ -121,9 +127,8 @@ window.Game = (function() {
 	 * Signals that the game is over.
 	 */
 	Game.prototype.gameover = function() {
-		console.log(this.points);
+		//this.finalScore.update("Score: " + this.points);
 		this.isPlaying = false;
-
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');

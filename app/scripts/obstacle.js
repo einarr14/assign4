@@ -15,7 +15,7 @@ window.Obstacle = (function() {
 		this.game = game;
 		this.pos = { x: cord, y: 0};
 		this.height = this.getY();
-		if (typeof topObst !== "undefined") {
+		if (typeof topObst !== 'undefined') {
 			this.pos.y = topObst.height + GAPSIZE;
 			this.height = this.game.WORLD_HEIGHT - this.pos.y;
 		}
@@ -29,7 +29,7 @@ window.Obstacle = (function() {
 		this.pos.x = cord;
 		this.pos.y = 0;
 		this.height = this.getY();
-		if (typeof topObst !== "undefined") {
+		if (typeof topObst !== 'undefined') {
 			this.pos.y = topObst.height + GAPSIZE;
 			this.height = this.game.WORLD_HEIGHT - this.pos.y;
 		}
@@ -43,7 +43,7 @@ window.Obstacle = (function() {
 			this.pos.x += 150;
 			this.pos.y = 0;
 			this.height = this.getY();
-			if (typeof this.topObst !== "undefined") {
+			if (typeof this.topObst !== 'undefined') {
 				this.pos.y = topObst.height + GAPSIZE;
 				this.height = this.game.WORLD_HEIGHT - this.pos.y;
 			}
