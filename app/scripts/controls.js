@@ -11,6 +11,7 @@ window.Controls = (function() {
         38: 'up',
         39: 'right',
         40: 'down',
+        77: 'm',
         0: 'click'
     };
 
