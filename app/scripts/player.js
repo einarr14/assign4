@@ -43,6 +43,10 @@ window.Player = (function() {
 			ROTATION = -50;
 			this.start = true;
 		}
+		if (this.game.isPlaying === false) {
+			console.log('here');
+			this.pos.y -= delta * 50;
+		}
 		if (this.start === true) {
 			SPEED -= 5;
 			ROTATION += (delta * 100);

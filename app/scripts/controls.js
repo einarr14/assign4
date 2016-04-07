@@ -44,15 +44,24 @@ window.Controls = (function() {
 
         if (e.keyCode === 77 && !this.keys.m) {
             console.log ('here');
-            var music = document.getElementById("mainsound");
+            var music = document.getElementById('mainsound');
+            var check = document.getElementById('checksound');
+            var flap = document.getElementById('flapsound');
+            var hit = document.getElementById('hitsound');
             if (this.muted === false) {
                 console.log('muting');
                 music.muted = true;
+                check.muted = true;
+                flap.muted = true;
+                hit.muted = true;
                 this.muted = true;
             }
             else if (this.muted === true) {
                 console.log('unmuting');
                 music.muted = false;
+                check.muted = false;
+                flap.muted = false;
+                hit.muted = false;
                 this.muted = false;
             }
             
