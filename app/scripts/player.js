@@ -17,7 +17,6 @@ window.Player = (function() {
 		this.game = game;
 		this.start = false;
 		this.pos = { x: 0, y: 0 };
-		console.log(game);
 	};
 
 	/**

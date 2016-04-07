@@ -97,12 +97,38 @@
 * Reset transform to animate it into the correct spot on the screen.
 */
 
+.score {
+	position: absolute;
+	z-index: 10;
+	padding-left: 1em;
+	padding-top: 1em;
+  font-family: 'Comic Sans MS', serif;
+  color: white;
+  font-size: 2em;
+}
+
 .Scoreboard.is-visible {
   -webkit-transform: none;
 }
 
+.Scoreboard-finalScore {
+  margin-top: 9em;
+  font-family: 'Comic Sans MS', serif;
+  color: white;
+}
+
+.Scoreboard-highScore {
+  margin-top: 1em;
+  font-family: 'Comic Sans MS', serif;
+  color: white;
+}
+
+#finalScore, #highScore {
+	font-size: 2em;
+}
+
 .Scoreboard-restart {
-  margin-top: 20em;
+  margin-top: 2em;
   font-size: inherit;
   padding: 0.4em 1.5em;
   border: 0.2em solid white;
@@ -159,3 +185,16 @@ body {
   background-size: contain;
   animation: groundMovement 0.294s linear infinite;
 }
+
+.volumeButton {
+  position: absolute;
+  opacity: 0.6;
+  bottom: 0;
+  left: 0;
+  width: 10em;
+  height: 14em;
+  overflow: visible;
+  background-image: url("../images/volume.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  }
