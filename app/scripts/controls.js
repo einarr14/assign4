@@ -44,7 +44,7 @@ window.Controls = (function() {
 
         if (e.keyCode === 77 && !this.keys.m) {
             console.log ('here');
-            var music = document.getElementById("mainsound");
+            var music = document.getElementById('mainsound');
             if (this.muted === false) {
                 console.log('muting');
                 music.muted = true;

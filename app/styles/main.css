@@ -159,3 +159,17 @@ body {
   background-size: contain;
   animation: groundMovement 0.294s linear infinite;
 }
+
+.volumeButton{
+  position: absolute;
+  opacity: 0.6;
+  bottom: 0;
+  left 0;
+  width: 10em;
+  height: 14em;
+  overflow: visible;
+  background-image: url("../images/volume.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  
+}
