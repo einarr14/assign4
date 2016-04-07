@@ -97,6 +97,14 @@
 * Reset transform to animate it into the correct spot on the screen.
 */
 
+.Score {
+	padding-left: 1em;
+	padding-top: 1em;
+  font-family: 'Comic Sans MS', serif;
+  color: white;
+  font-size: 2em;
+}
+
 .Scoreboard.is-visible {
   -webkit-transform: none;
 }
