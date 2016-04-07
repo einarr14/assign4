@@ -6,6 +6,7 @@ window.Player = (function() {
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
 	var SPEED = 0; // * 10 pixels per second
+	var ROTATION = 0;
 	var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
@@ -29,6 +30,7 @@ window.Player = (function() {
 		this.height = HEIGHT;
 		this.start = false;
 		SPEED = 0;
+		ROTATION = 0;
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -38,17 +40,18 @@ window.Player = (function() {
 			sound.currentTime = 0;
 			sound.play();
 			SPEED = 60;
+			ROTATION = -50;
 			this.start = true;
 		}
 		if (this.start === true) {
 			SPEED -= 5;
+			ROTATION += (delta * 100);
 		}
-
 		this.pos.y -= delta * SPEED;
 		this.checkCollisionWithBounds();
 
 		// Update UI
-		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotateZ(' + ROTATION + 'deg)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
