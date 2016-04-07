@@ -34,7 +34,7 @@ window.Player = (function() {
 	Player.prototype.onFrame = function(delta) {
 		
 		if (Controls.keys.space || Controls.keys.click) {
-			var sound = document.getElementById('flap');
+			var sound = document.getElementById('flapsound');
 			sound.currentTime = 0;
 			sound.play();
 			SPEED = 60;
