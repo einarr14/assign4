@@ -33,7 +33,7 @@ window.Player = (function() {
 
 	Player.prototype.onFrame = function(delta) {
 		
-		if (Controls.keys.space || Controls.keys.click) {
+		if (Controls.keys.space || Controls.keys.click || Controls.keys.tap) {
 			SPEED = 60;
 			START = true;
 		}

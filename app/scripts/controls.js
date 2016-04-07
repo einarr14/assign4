@@ -11,7 +11,9 @@ window.Controls = (function() {
         38: 'up',
         39: 'right',
         40: 'down',
+        27: 'tap',
         0: 'click'
+        
     };
 
     /**
@@ -25,7 +27,11 @@ window.Controls = (function() {
         this.keys = {};
         $(window)
             .on('keydown', this._onKeyDown.bind(this))
-            .on('keyup', this._onKeyUp.bind(this));
+            .on('keyup', this._onKeyUp.bind(this))
+            .on('mousedown', this._onMouseDown.bind(this))
+            .on('mouseup', this._onMouseUp.bind(this))
+            .on('touchstart', this._onTapStart.bind(this))
+            .on('touchend', this._onTapEnd.bind(this));
     };
 
     Controls.prototype._onKeyDown = function(e) {
@@ -42,17 +48,49 @@ window.Controls = (function() {
         }
     };
 
-    /*Controls.prototype._onMouseDown = function(e) {
-        
+    Controls.prototype._onMouseDown = function() {
         this._didJump = true;
-
+        
         // Remember that this button is down.
-        if (e.keyCode in KEYS) {
-            var keyName = KEYS[e.keyCode];
+        if (0 in KEYS) {
+            var keyName = KEYS[0];
             this.keys[keyName] = true;
             return false;
         }
-    }*/
+
+    };
+
+    Controls.prototype._onTapStart = function() {
+        
+        this._didJump = true;
+        
+
+        // Remember that this button is down.
+        if (27 in KEYS) {
+            var keyName = KEYS[27];
+            this.keys[keyName] = true;
+            return false;
+        }
+    };
+
+    Controls.prototype._onTapEnd = function() {
+        
+        // Remember that this button is down.
+        if (27 in KEYS) {
+            var keyName = KEYS[27];
+            this.keys[keyName] = false;
+            return false;
+        }
+
+    };
+
+    Controls.prototype._onMouseUp = function() {
+        if (0 in KEYS) {
+            var keyName = KEYS[0];
+            this.keys[keyName] = false;
+            return false;
+        }
+    };
 
     Controls.prototype._onKeyUp = function(e) {
         if (e.keyCode in KEYS) {
