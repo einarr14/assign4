@@ -30,6 +30,7 @@ window.Player = (function() {
 		this.start = false;
 		SPEED = 0;
 		ROTATION = 0;
+		$('#Instructions').css('visibility', 'visible');
 	};
 
 	Player.prototype.onFrame = function(delta) {
@@ -40,6 +41,7 @@ window.Player = (function() {
 			SPEED = 60;
 			ROTATION = -50;
 			this.start = true;
+			$('#Instructions').css('visibility', 'hidden');
 		}
 		if (this.start === true) {
 			SPEED -= 5;
@@ -49,7 +51,7 @@ window.Player = (function() {
 		this.checkCollisionWithBounds();
 
 		// Update UI
-		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotateZ(' + ROTATION + 'deg)');
+		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotateZ(' + ROTATION + 'deg)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {
