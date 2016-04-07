@@ -97,7 +97,9 @@
 * Reset transform to animate it into the correct spot on the screen.
 */
 
-.Score {
+.score {
+	position: absolute;
+	z-index: 10;
 	padding-left: 1em;
 	padding-top: 1em;
   font-family: 'Comic Sans MS', serif;
