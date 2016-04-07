@@ -25,24 +25,49 @@
 
 @keyframes flap {
 	from {
-		transform: rotateX(0);
+		transform: rotateX(0deg);
 	}
 	to {
 		transform: rotateX(80deg);
 	}
 }
 
+.George {
+  position: absolute;
+  opacity: 0.6;
+  top: 0;
+  right: 0;
+  width: 10em;
+  height: 15em;
+  overflow: visible;
+  background: url("../images/savage_burned.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  z-index: 4;
+  animation: georgeMovement 7s linear infinite;
+}
+
+@keyframes georgeMovement {
+  from {
+    transform: translateX(10em) rotateZ(0deg);
+  }
+  to   {
+    transform: translateX(-100em) rotateZ(720deg);
+  }
+}
+
 .Obstacle {
 	top: 0;
 	left: 0;
 	width: 10em;
+  z-index: 5;
 }
 
 .ObstacleBot {
 	background: url("../images/drop.png");
 	position:absolute;
 	vertical-align: top;
-    background-size: 20%;
+  background-size: 20%;
 }
 
 .ObstacleTop {
@@ -124,6 +149,7 @@ body {
 
 .ground {
   position: absolute;
+  z-index: 6;
   bottom: 0;
   width: 200%;
   height: 2.5em;

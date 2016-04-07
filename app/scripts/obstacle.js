@@ -37,8 +37,9 @@ window.Obstacle = (function() {
 	};
 
 	Obstacle.prototype.onFrame = function(delta, topObst) {
-		
-		this.pos.x -= delta * SPEED;
+		if (this.game.player.start === true) {
+			this.pos.x -= delta * SPEED;
+		}
 		if (this.pos.x < -10) {
 			this.pos.x += 150;
 			this.pos.y = 0;
@@ -55,7 +56,7 @@ window.Obstacle = (function() {
 	};
 
 	Obstacle.prototype.getY = function() {
-		return Math.floor((Math.random() * 15) + 5);
+		return Math.floor((Math.random() * 30) + 5);
 	};
 
 

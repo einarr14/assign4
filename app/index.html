@@ -25,8 +25,11 @@
         <![endif]-->
 
         <div class="GameCanvas">
-            <audio src="carelesswhisper.mp3" autoplay loop></audio>
+            <audio id="mainsound" src="sounds/carelesswhisper.mp3" autoplay loop></audio>
+            <audio id="flapsound" src="sounds/sfx_wing.ogg"></audio>
+            <audio id="checksound" src="sounds/sfx_point.ogg"></audio>
             <div class="Score" id="Score">0</div>
+            
             <div class="Player">
                 <div class="PlayerWing"></div>
             </div>
@@ -36,6 +39,7 @@
             <div class="Obstacle ObstacleBot" id="obstacle-bot-2" style="height: 5em"></div>
             <div class="Obstacle ObstacleBot" id="obstacle-top-3" style="height: 5em"></div>
             <div class="Obstacle ObstacleBot" id="obstacle-bot-3" style="height: 5em"></div>
+            <div class="George"></div>
 
             <div class="ground"></div>
             

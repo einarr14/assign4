@@ -10,11 +10,11 @@ window.Player = (function() {
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
-	var START = false;
 
 	var Player = function(el, game) {
 		this.el = el;
 		this.game = game;
+		this.start = false;
 		this.pos = { x: 0, y: 0 };
 		console.log(game);
 	};
@@ -27,19 +27,23 @@ window.Player = (function() {
 		this.pos.y = INITIAL_POSITION_Y;
 		this.width = WIDTH;
 		this.height = HEIGHT;
-		START = false;
+		this.start = false;
 		SPEED = 0;
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		
+
 		if (Controls.keys.space || Controls.keys.click || Controls.keys.tap) {
+			var sound = document.getElementById('flapsound');
+			sound.currentTime = 0;
+			sound.play();
 			SPEED = 60;
-			START = true;
+			this.start = true;
 		}
-		if (START === true) {
+		if (this.start === true) {
 			SPEED -= 5;
 		}
+
 		this.pos.y -= delta * SPEED;
 		this.checkCollisionWithBounds();
 
