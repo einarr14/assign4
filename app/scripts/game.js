@@ -87,12 +87,16 @@ window.Game = (function() {
 		if (this.obstacleTop1.pos.x + (delta * this.obstacleTop1.speed) > this.player.pos.x && this.obstacleTop1.pos.x < this.player.pos.x) {
 			this.points++;
 			var sound = document.getElementById('checksound');
+			console.log(this.points);
+			$('#Score').html(this.points);
 			//sound.currentTime = 0;
 			sound.play();
 		}
 		if (this.obstacleTop2.pos.x + (delta * this.obstacleTop2.speed) > this.player.pos.x && this.obstacleTop2.pos.x < this.player.pos.x) {
 			this.points++;
 			var sound = document.getElementById('checksound');
+			console.log(this.points);
+			$('#Score').html(this.points);
 			//sound.currentTime = 0;
 			sound.play();
 			//this.score.update(this.points);
@@ -100,6 +104,8 @@ window.Game = (function() {
 		if (this.obstacleTop3.pos.x + (delta * this.obstacleTop3.speed) > this.player.pos.x && this.obstacleTop3.pos.x < this.player.pos.x) {
 			this.points++;
 			var sound = document.getElementById('checksound');
+			console.log(this.points);
+			$('#Score').html(this.points);
 			//sound.currentTime = 0;
 			sound.play();
 			//this.score.update(this.points);
