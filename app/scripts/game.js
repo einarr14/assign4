@@ -143,6 +143,8 @@ window.Game = (function() {
 	 */
 	Game.prototype.gameover = function() {
 		//this.finalScore.update("Score: " + this.points);
+		var sound = document.getElementById('hitsound');
+		sound.play();
 		this.isPlaying = false;
 		// Should be refactored into a Scoreboard class.
 		var that = this;
