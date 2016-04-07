@@ -83,19 +83,19 @@ window.Game = (function() {
 
 	Game.prototype.checkPoint = function (delta) {
 		var sound = document.getElementById('checksound');
-		if (this.obstacleTop1.pos.x + (delta * this.obstacleTop1.speed) > this.player.pos.x && this.obstacleTop1.pos.x < this.player.pos.x) {
+		if (this.obstacleTop1.pos.x + (delta * this.obstacleTop1.speed) >= this.player.pos.x && this.obstacleTop1.pos.x < this.player.pos.x) {
 			this.points++;
 			sound.play();
 			$('#Score').html(this.points);
 		}
-		if (this.obstacleTop2.pos.x + (delta * this.obstacleTop2.speed) > this.player.pos.x && this.obstacleTop2.pos.x < this.player.pos.x) {
+		if (this.obstacleTop2.pos.x + (delta * this.obstacleTop2.speed) >= this.player.pos.x && this.obstacleTop2.pos.x < this.player.pos.x) {
 			this.points++;
 			console.log(this.points);
 			$('#Score').html(this.points);
 			//sound.currentTime = 0;
 			sound.play();
 		}
-		if (this.obstacleTop3.pos.x + (delta * this.obstacleTop3.speed) > this.player.pos.x && this.obstacleTop3.pos.x < this.player.pos.x) {
+		if (this.obstacleTop3.pos.x + (delta * this.obstacleTop3.speed) >= this.player.pos.x && this.obstacleTop3.pos.x < this.player.pos.x) {
 			this.points++;
 			console.log(this.points);
 			$('#Score').html(this.points);
