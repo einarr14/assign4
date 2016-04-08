@@ -30,10 +30,10 @@ window.Player = (function() {
 		this.start = false;
 		SPEED = 0;
 		ROTATION = 0;
+		$('#Instructions').css('visibility', 'visible');
 	};
 
 	Player.prototype.onFrame = function(delta) {
-
 		if (Controls.keys.space || Controls.keys.click || Controls.keys.tap) {
 			var sound = document.getElementById('flapsound');
 			sound.currentTime = 0;
@@ -41,10 +41,11 @@ window.Player = (function() {
 			SPEED = 60;
 			ROTATION = -50;
 			this.start = true;
+			$('#Instructions').css('visibility', 'hidden');
+			this.el.find('.PlayerWing').css('animation', '0.05s flap alternate infinite');
 		}
-		if (this.game.isPlaying === false) {
-			console.log('here');
-			this.pos.y -= delta * 50;
+		else {
+			this.el.find('.PlayerWing').css('animation', '0.05s flap alternate 0');
 		}
 		if (this.start === true) {
 			SPEED -= 5;
@@ -54,7 +55,7 @@ window.Player = (function() {
 		this.checkCollisionWithBounds();
 
 		// Update UI
-		this.el.css('transform', 'translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotateZ(' + ROTATION + 'deg)');
+		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotateZ(' + ROTATION + 'deg)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {

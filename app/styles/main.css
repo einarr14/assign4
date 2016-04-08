@@ -1,3 +1,8 @@
+* {
+	font-family: Arial;
+	color: white;
+}
+
 .Player {
   position: absolute;
   top: 0;
@@ -7,20 +12,20 @@
   background: url("../images/cloud.png");
   background-size: 100%;
   background-repeat: no-repeat;
-  z-index: 5;
+  z-index: 7;
 }
 
 .PlayerWing {
+  transform-origin:100% 100%;
   position: absolute;
   left: -1em;
-  bottom: 1em;
+  bottom: 1.5em;
   height: 4em;
   width: 4em;
   
   background: url("../images/wing.png");
   background-size: 100%;
-  transform-origin: center;
-  animation: 0.4s flap alternate infinite;
+  animation: 0.4s flap alternate 0;
 }
 
 @keyframes flap {
@@ -28,7 +33,7 @@
 		transform: rotateX(0deg);
 	}
 	to {
-		transform: rotateX(80deg);
+		transform: rotateX(100deg);
 	}
 }
 
@@ -44,15 +49,18 @@
   background-size: 100%;
   background-repeat: no-repeat;
   z-index: 4;
-  animation: georgeMovement 7s linear infinite;
+  animation: georgeMovement 10s linear infinite;
 }
 
 @keyframes georgeMovement {
-  from {
-    transform: translateX(10em) rotateZ(0deg);
+  0% {
+    transform: translateZ(0) translateX(10em) rotateZ(0deg) scale(0.5, 0.5);
   }
-  to   {
-    transform: translateX(-100em) rotateZ(720deg);
+  90% {
+    transform: translateZ(0) translateX(-65em) rotateZ(180deg) scale(2, 2);
+  }
+  100%   {
+    transform: translateZ(0) translateX(-100em) rotateZ(1050deg) scale(0.5, 0.5);
   }
 }
 
@@ -87,7 +95,9 @@
   z-index: 10;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  background: purple;
+  background: blue;
+  border-radius: 50%;
+  opacity: 0.4;
   text-align: center;
   -webkit-transform: translate(0, -40em);
   -webkit-transition: -webkit-transform 0.5s;
@@ -102,8 +112,6 @@
 	z-index: 10;
 	padding-left: 1em;
 	padding-top: 1em;
-  font-family: 'Comic Sans MS', serif;
-  color: white;
   font-size: 2em;
 }
 
@@ -113,14 +121,10 @@
 
 .Scoreboard-finalScore {
   margin-top: 9em;
-  font-family: 'Comic Sans MS', serif;
-  color: white;
 }
 
 .Scoreboard-highScore {
   margin-top: 1em;
-  font-family: 'Comic Sans MS', serif;
-  color: white;
 }
 
 #finalScore, #highScore {
@@ -137,9 +141,7 @@
 }
 
 .Scoreboard-restartText {
-  font-family: 'Comic Sans MS', serif;
-  font-size: 2.4em;
-  color: white;
+  font-size: 2.5em;
 }
 
 body {
@@ -164,6 +166,11 @@ body {
   margin-top: -28.8em;
   overflow: hidden;
   background: rgb(34,128,251);
+}
+
+.instructions {
+  margin-left: 1em;
+  margin-top: 13em;
 }
 
 

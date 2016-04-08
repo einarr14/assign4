@@ -16,7 +16,7 @@
     height: em(576px);
     margin-left: (em(-1024px) / 2);
     margin-top: (em(-576px) / 2);
-
+    translateZ(0);
     // Don't draw outside this box.
     overflow: hidden;
 
