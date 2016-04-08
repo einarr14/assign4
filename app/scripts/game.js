@@ -131,6 +131,25 @@ window.Game = (function() {
 		this.obstacleBot3.reset(170, this.obstacleTop3);
 	};
 
+	Game.prototype.mute = function(){
+		if (this.muted === false) {
+                console.log('muting');
+                music.muted = true;
+                check.muted = true;
+                flap.muted = true;
+                hit.muted = true;
+                this.muted = true;
+            }
+            else if (this.muted === true) {
+                console.log('unmuting');
+                music.muted = false;
+                check.muted = false;
+                flap.muted = false;
+                hit.muted = false;
+                this.muted = false;
+            }
+	}
+
 	/**
 	 * Signals that the game is over.
 	 */
