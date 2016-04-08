@@ -194,21 +194,16 @@ body {
 }
 
 #unmuteButton {
-  display:none;
-  position: absolute;
-  opacity: 0.6;
-  bottom: 0;
-  left: 0;
-  width: 8em;
-  height: 13em;
-  z-index: 4;
+  visibility: hidden;
 }
-#muteButton {
+#muteButton, #unmuteButton {
   position: absolute;
   opacity: 0.6;
   bottom: 0;
   left: 0;
-  width: 8em;
-  height: 13em;
-  z-index: 4;
+  width: 6em;
+  height: 8em;
+  z-index: 7;
+  padding-left: 2em;
+  padding-bottom: 2em;
 }

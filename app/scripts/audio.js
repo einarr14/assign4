@@ -19,9 +19,8 @@ function mute(){
         flap.muted = true;
         hit.muted = true;
         muted = true;
-        muteButton.style.visibility = 'visible';
-        unmuteButton.style.visibility = 'hidden';
-        
+        muteButton.style.visibility = 'hidden';
+        unmuteButton.style.visibility = 'visible';
 
     }
     else if (muted === true) {
@@ -31,8 +30,8 @@ function mute(){
         flap.muted = false;
         hit.muted = false;
         muted = false;
-     	muteButton.style.visibility = 'hidden';
-        unmuteButton.style.visibility = 'visible';
+        muteButton.style.visibility = 'visible';
+        unmuteButton.style.visibility = 'hidden';
     }
 }
 
